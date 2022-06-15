@@ -106,7 +106,7 @@ void create_account(AccountList *acc_list)
 {
 	int nberOfAccounts;
 	ofstream file;
-	file.open("account.txt", ios::app);
+	file.open("accounts.txt", ios::app);
 
 	cout << "Enter number of accounts to create: ";
 	cin >> nberOfAccounts;
