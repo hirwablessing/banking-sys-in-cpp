@@ -182,7 +182,7 @@ void get_all_accounts()
 
 void tokenizestring(string const &str, const char delim, vector<string> &out)
 {
-	// construct a stream from the string
+	// split the string into an array of strings
 	stringstream ss(str);
 	string token;
 	while (getline(ss, token, delim))
@@ -190,8 +190,6 @@ void tokenizestring(string const &str, const char delim, vector<string> &out)
 		out.push_back(token);
 	}
 }
-
-// a function that replaces the current line in the file with the new line
 
 void update_balance(string action)
 {
@@ -305,6 +303,7 @@ void update_account_details()
 		}
 		file.close();
 		newfile.close();
+		bankLogs.close();
 		remove("accounts.txt");
 		rename("newaccounts.txt", "accounts.txt");
 	}
@@ -352,7 +351,7 @@ void viewAccountLogs()
 	cin >> account_number;
 
 	ifstream file;
-	file.open("accounts.txt");
+	file.open("logs.txt");
 	string line;
 	bool hastRecord = false;
 
